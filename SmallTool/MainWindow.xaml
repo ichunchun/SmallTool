@@ -5,26 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmallTool"
         mc:Ignorable="d"
-        Title="Yang's Tool"  Height="325" Width="240" WindowStartupLocation="CenterScreen" Background="Transparent" WindowStyle="None" AllowsTransparency="True">
+        Title="Yang's Tool"  Height="410" Width="340" WindowStartupLocation="CenterScreen" Background="Transparent" WindowStyle="None" AllowsTransparency="True">
     <Window.Resources>
-        <ControlTemplate x:Key="closebtn" TargetType="Button">
-            <Border Background="#dc3545" CornerRadius="10" BorderThickness="0" x:Name="closeborderbg"/>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#bb2d3b" TargetName="closeborderbg"></Setter>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
+        <Style x:Key="TextboxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="#1f1f1f"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="30"></Setter>
+        </Style>
+
     </Window.Resources>
     <Grid>
-        <Border Background="White" CornerRadius="12" MouseDown="UIElement_OnMouseDown" BorderThickness="1" BorderBrush="#f8f9fa"/>
-        <Button Height="20" Width="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,16,16,0" Template="{StaticResource closebtn}" Click="ButtonBase_OnClick"/>
+        <Border Background="#1f1f1f" 
+                CornerRadius="12" 
+                MouseDown="UIElement_OnMouseDown" 
+/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,16,0">
+            <Button Height="20" Width="20"                 
+                VerticalAlignment="Top"                
+                Template="{StaticResource closebtn}" 
+                    Background="Red"
+                Click="ButtonBase_OnClick"/>
+        </StackPanel>
         <StackPanel Orientation="Vertical" Margin="20,60,20,0">
-        <TextBox  FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" Text="AAA888" x:Name="PCName" ToolTip="计算机名称会在重启后才会显示修改，已我的电脑里的为准"/>
-        <TextBox  FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" Text="192.168.123.21" Margin="0,20" x:Name="IP"/>
-        <TextBox  FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" Text="以太网" x:Name="NetCard"/>
-        <CheckBox Content="选中后变为SaveTOJson" HorizontalAlignment="Center" Background="White" Margin="0,20" Foreground="#1f1f1f" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" x:Name="checkbox"/>
-        <Button Content="ChangeInfo" Width="160" Height="40" Click="Button_Click" x:Name="btn" Template="{StaticResource Runbtn}"/>
-    </StackPanel>
+            <TextBox Style="{StaticResource TextboxStyle}"  Text="AAA888" x:Name="PCName" ToolTip="计算机名称会在重启后才会显示修改，已我的电脑里的为准"/>
+            <TextBox Style="{StaticResource TextboxStyle}" Text="192.168.123.21" Margin="0,20" x:Name="IP"/>
+            <TextBox Style="{StaticResource TextboxStyle}" Text="以太网" x:Name="NetCard"/>
+            <CheckBox Content="选中后变为SaveTOJson" HorizontalAlignment="Center"  Margin="0,30" Foreground="white" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" x:Name="checkbox"/>
+            <Button Content="ChangeInfo" Width="220" Height="60" Click="Button_Click" x:Name="btn" Template="{StaticResource Runbtn}"/>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                <Button Content="&#xe827;" Template="{StaticResource optionbtn}"  Click="ButtonBase_OnClick1" Foreground="White"/>
+                <Button Margin="20,0,0,0" Content="&#xe659;" Template="{StaticResource optionbtn}" Click="Button_Click_1" Foreground="White"/>
+                <Button Margin="20,0,0,0" Content="&#xe607;" Template="{StaticResource optionbtn}" x:Name="autochangebtn"  Foreground="White" Visibility="Collapsed" Click="autochangebtn_Click"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

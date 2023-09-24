@@ -6,11 +6,27 @@
     <Application.Resources>
         <ControlTemplate x:Key="Runbtn" TargetType="Button">
             <Border Background="#0d6efd" CornerRadius="10" x:Name="Borderbg">
-                <Label Content="{TemplateBinding Content}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="12"></Label>
+                <Label Content="{TemplateBinding Content}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="16"></Label>
             </Border>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#0b5ed7" TargetName="Borderbg" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="closebtn" TargetType="Button">
+            <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderThickness="0" x:Name="closeborderbg"/>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#bb2d3b" TargetName="closeborderbg"></Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate TargetType="Button" x:Key="optionbtn">
+            <Label FontSize="20" Content="{TemplateBinding Content}" x:Name="flbl" FontFamily="/Fonts/#iconfont" Foreground="{TemplateBinding Foreground}"/>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Foreground" Value="red" TargetName="flbl"/>
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
